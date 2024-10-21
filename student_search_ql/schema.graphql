@@ -1,0 +1,13 @@
+type StudentAdded @entity(immutable: true) {
+  id: Bytes!
+  rollnum: BigInt! # uint256
+  name: String! # string
+  gender: String! # string
+  batch: String! # string
+  department: String! # string
+  branch: String! # string
+  hall: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

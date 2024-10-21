@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Student_search
+    network: arbitrum-sepolia
+    source:
+      address: "0xe90d8A8a4afEb03d4996DE924Ce50d5CDd21CBe9"
+      abi: Student_search
+      startBlock: 90526645
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - StudentAdded
+      abis:
+        - name: Student_search
+          file: ./abis/Student_search.json
+      eventHandlers:
+        - event: StudentAdded(uint256,string,string,string,string,string,string)
+          handler: handleStudentAdded
+      file: ./src/student-search.ts
